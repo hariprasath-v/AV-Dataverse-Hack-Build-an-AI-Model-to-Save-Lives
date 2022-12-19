@@ -1,13 +1,13 @@
 # AV-Dataverse-Hack-Build-an-AI-Model-to-Save-Lives
 
-### Competition hosted on <a href="https://datahack.analyticsvidhya.com/contest/job-a-thon-november-2022/#About">Analyticsvidhya</a>
+### Competition hosted on <a href="https://datahack.analyticsvidhya.com/contest/dataverse-hack/#About">Analyticsvidhya</a>
 
 # About
 
 ### Build a computer vision-based technology to process and detect the potholes present in an image.
 
 ### This is my first object detection - computer vision hackathon. 
-### From the competition starter notebook, I have tried pytorch - fasterrcnn resnet50 fpn object detection model without the proper image processing and augmentation the model performed not well and didn't learn any signals. 
+### From the competition starter notebook, I have tried the same PyTorch - fasterrcnn resnet50 fpn object detection model, and without the proper image processing or data augmentation the model not performed well and didn't learn any signals. 
 
 ### Final Competition score is 0.0060050745
 
@@ -17,7 +17,7 @@
 
 ### File information
  
- * av-dataverse-hack-build-an-ai-model-to-save-lives- EDA.ipynb [![Open in Kaggle](https://img.shields.io/static/v1?label=&message=Open%20in%20Kaggle&labelColor=grey&color=blue&logo=kaggle)](https://www.kaggle.com/hari141v/av-job-a-thon-november-2022-eda)
+ * av-dataverse-hack-build-an-ai-model-to-save-lives- EDA.ipynb [![Open in Kaggle](https://img.shields.io/static/v1?label=&message=Open%20in%20Kaggle&labelColor=grey&color=blue&logo=kaggle)](https://www.kaggle.com/code/hari141v/dataverse-hack-build-an-ai-model-to-save-lives-eda)
     #### Basic Exploratory Data Analysis
     #### Packages Used,
         * seaborn
