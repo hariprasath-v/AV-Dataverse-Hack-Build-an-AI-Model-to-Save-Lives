@@ -1,7 +1,6 @@
 torch
 datetime
 pillow
-time
 requests
 cv2
 numpy
