@@ -1,6 +1,5 @@
 torch
 datetime
-os
 pillow
 time
 requests
