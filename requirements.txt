@@ -15,5 +15,6 @@ scikit-learn
 pycocotools
 albumentations
 tensorflowjs
+seaborn
 
 
