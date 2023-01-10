@@ -7,5 +7,6 @@ opencv-python-headless
 numpy
 GitPython
 matplotlib
+tqdm
 
 
