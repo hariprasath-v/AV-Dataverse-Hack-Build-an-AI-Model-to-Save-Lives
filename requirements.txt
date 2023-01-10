@@ -1,4 +1,5 @@
 torch
+torchvision
 datetime
 pillow
 requests
@@ -6,4 +7,5 @@ opencv-python-headless
 numpy
 GitPython
 matplotlib
+
 
