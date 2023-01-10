@@ -2,7 +2,7 @@ torch
 datetime
 pillow
 requests
-opencv-python
+opencv-python-headless
 numpy
 dload
 matplotlib
