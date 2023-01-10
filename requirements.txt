@@ -6,5 +6,4 @@ opencv-python-headless
 numpy
 GitPython
 matplotlib
-streamlit
 
