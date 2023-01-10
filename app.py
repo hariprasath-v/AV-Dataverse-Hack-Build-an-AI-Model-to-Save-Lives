@@ -26,10 +26,8 @@ def page1():
      
      model=torch.hub.load(".",'custom','best.pt',source='local')
      pred = model(img)
-      
-     #img_ = Image.open(outputpath)
      with col2:
-       st.image(pred.imgs[0], caption='Model Prediction(s)', use_column_width='always')
+       st.image(Image.fromarray(pred.imgs[0]), caption='Model Prediction(s)', use_column_width='always')
   
 
       
