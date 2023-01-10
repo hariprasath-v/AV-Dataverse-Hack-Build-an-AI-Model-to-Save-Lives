@@ -4,6 +4,7 @@ pillow
 requests
 opencv-python-headless
 numpy
-dload
+GitPython
 matplotlib
+streamlit
 
