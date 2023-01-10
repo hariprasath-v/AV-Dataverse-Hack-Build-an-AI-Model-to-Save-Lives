@@ -22,7 +22,7 @@ def page1():
      with col1:
        st.image(img, caption='Uploaded Image', use_column_width='always',channels='RGB')
      
-     model=torch.hub.load(".",'custom','19d391aab7b31addc02670f6de2c975c.pt',source='local')
+     model=torch.hub.load(".",'custom','best.pt',source='local')
      pred = model(img)
       
      #img_ = Image.open(outputpath)
