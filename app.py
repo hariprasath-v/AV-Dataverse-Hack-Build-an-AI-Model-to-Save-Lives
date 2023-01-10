@@ -43,9 +43,9 @@ def loadModel():
     start_dl = time.time()
     Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
     os.chdir('yolov7')
-    file=requests.get('https://api.wandb.ai/artifactsV2/gcp-us/hari141v/QXJ0aWZhY3Q6MzA1MzkxMjgy/19d391aab7b31addc02670f6de2c975c')
+    yolo_model=requests.get('https://api.wandb.ai/artifactsV2/gcp-us/hari141v/QXJ0aWZhY3Q6MzA1MzkxMjgy/19d391aab7b31addc02670f6de2c975c')
     with open("best.pt", 'wb')as file:
-      file.write(filer.content)  
+      file.write(yolo_model.content)  
     finished_dl = time.time()
     print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
     
