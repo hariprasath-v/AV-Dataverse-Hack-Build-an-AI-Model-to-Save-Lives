@@ -2,9 +2,9 @@ torch
 datetime
 numpy
 os
-wget
+dload
 time
 cv2
 PIL
 matplotlib
-GitPython
+requests
