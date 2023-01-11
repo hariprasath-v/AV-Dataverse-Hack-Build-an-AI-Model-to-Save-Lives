@@ -30,7 +30,7 @@ def page1():
      pred.render()  # render bbox in image
      for im in pred.imgs:
        im_base64 = Image.fromarray(im)
-       m_base64.save(outpath)
+       im_base64.save(outpath)
      img_ = Image.open(outpath)
      with col2:
        st.image(Img_, caption='Model Prediction(s)', use_column_width='always')
