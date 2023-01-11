@@ -18,7 +18,7 @@ def page1():
   if image_file is not None:
      img=Image.open(image_file)
      #img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-     img_arr=np.array(img)
+     #img_arr=np.array(img)
      #img = cv2.imdecode(img, 1)
      col1, col2 = st.columns(2)
      with col1:
@@ -26,14 +26,15 @@ def page1():
      outpath = os.path.join(os.getcwd(), f"out_{os.path.basename(img.filename)}")
      model=torch.hub.load(".",'custom','best.pt',source='local')
      
-     pred = model(img_arr)
+     pred = model(img)
      pred.render()  # render bbox in image
      for im in pred.imgs:
-       im_base64 = Image.fromarray(im)
-       im_base64.save(outpath)
+        im_base64 = Image.fromarray(im)
+        im_base64.save(outpath)
+        
      img_ = Image.open(outpath)
      with col2:
-       st.image(Img_, caption='Model Prediction(s)', use_column_width='always')
+       st.image(Img_, caption='Model Prediction(s)', use_column_width='always',channels='RGB')
   
 
       
