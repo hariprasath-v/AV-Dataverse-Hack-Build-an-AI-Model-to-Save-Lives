@@ -27,7 +27,7 @@ def page1():
      model=torch.hub.load(".",'custom','best.pt',source='local')
      pred = model(img)
      pred.render()  # render bbox in image
-     for im in pred.ims:
+     for im in pred.imgs:
          im_base64 = Image.fromarray(im)
          im_base64.save(outputpath)
      img_ = Image.open(outputpath)
