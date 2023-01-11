@@ -18,7 +18,7 @@ def page1():
   if image_file is not None:
      img=Image.open(image_file)
      #img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-     img=np.array(img)
+    # img=np.array(img)
      #img = cv2.imdecode(img, 1)
      col1, col2 = st.columns(2)
      with col1:
