@@ -23,12 +23,15 @@ def page1():
      col1, col2 = st.columns(2)
      with col1:
        st.image(img, caption='Uploaded Image', use_column_width='always',channels='RGB')
-     outpath = os.path.join('yolov7', f"out_{image_file.name}")
+     outpath = os.path.join('yolov7', f"out_{os.path.basename(image_file.filename)}")
      model=torch.hub.load(".",'custom','best.pt',source='local')
+     
      pred = model(img)
-     pred.save()  # render bbox in imag
-     file_name = [x for x in os.listdir("yolov7/runs/hub/exp") if x.endswith('.jpg')]
-     img_ = Image.open(f"yolov7/runs/hub/exp/{file_name}")
+     pred.render()  # render bbox in image
+     for im in pred.imgs:
+       im_base64 = Image.fromarray(im)
+       m_base64.save(outputpath)
+     img_ = Image.open(outpath)
      with col2:
        st.image(Img_, caption='Model Prediction(s)', use_column_width='always')
   
