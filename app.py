@@ -23,7 +23,7 @@ def page1():
      col1, col2 = st.columns(2)
      with col1:
        st.image(img, caption='Uploaded Image', use_column_width='always',channels='RGB')
-     outpath = os.path.join(os.getcwd(), f"out_{os.path.basename(img.filename)}")
+     outpath = os.path.join(os.getcwd(), f"out_{os.path.basename(image_file.name)}")
      model=torch.hub.load(".",'custom','best.pt',source='local')
      
      pred = model(img)
