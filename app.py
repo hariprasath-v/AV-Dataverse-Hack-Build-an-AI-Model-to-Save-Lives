@@ -53,4 +53,4 @@ def loadModel():
     finished_dl = time.time()
     print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
     
-loadModel() 
+loadModel()
