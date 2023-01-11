@@ -34,7 +34,7 @@ def page1():
         
      img_ = Image.open(outpath)
      with col2:
-       st.image(Img_, caption='Model Prediction(s)', use_column_width='always',channels='RGB')
+       st.image(Img_, caption='Model Prediction(s)', use_column_width='always')
   
 
       
