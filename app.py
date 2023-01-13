@@ -25,16 +25,42 @@ def page1():
        st.image(img, caption='Uploaded Image', use_column_width='always',channels='RGB')
      outpath = os.path.join(os.getcwd(), f"out_{os.path.basename(image_file.name)}")
      model=torch.hub.load(".",'custom','best.pt',source='local')
-     
-     pred = model(img)
-     pred.render()  # render bbox in image
-     for im in pred.imgs:
-        im_base64 = Image.fromarray(im)
-        im_base64.save(outpath)
-        
-     img_ = Image.open(outpath)
-     with col2:
-       st.image(img_, caption='Model Prediction(s)', use_column_width='always',channels='RGB')
+     if st.button('Detect Pothole'):
+        pred = model(img)
+        pred.render()  # render bbox in image
+        for im in pred.imgs:
+          im_base64 = Image.fromarray(im)
+          im_base64.save(outpath)
+        img_ = Image.open(outpath)
+        with col2:
+           st.image(img_, caption='Model Prediction(s)', use_column_width='always',channels='RGB')
+        with st.expander("View Annotation Data"):
+          tab1, tab2, tab3 = st.tabs(['Pascal VOC', 'COCO','YOLO'])
+          pred = model(img)
+          with tab1:
+            df1=pred.pandas().xyxy[0]
+            st.dataframe(df1)
+            st.download_button(
+            label="Download Annotation Data as CSV",
+            data=df1.to_csv(),
+            file_name=f"Annotation(Pascal VOC) Data For {image_file.name}.csv",
+            mime='text/csv')
+          with tab2:
+            df1=pred.pandas().xywh[0]
+            st.dataframe(df1)
+            st.download_button(
+            label="Download Annotation Data as CSV",
+            data=df1.to_csv(),
+            file_name=f"Annotation(COCO) Data For {image_file.name}.csv",
+            mime='text/csv')
+          with tab3:
+            df1=pred.pandas().xywhn[0]
+            st.dataframe(df1)
+            st.download_button(
+            label="Download Annotation Data as CSV",
+            data=df1.to_csv(),
+            file_name=f"Annotation(YOLO) Data For {image_file.name}.csv",
+            mime='text/csv')
   
 
       
