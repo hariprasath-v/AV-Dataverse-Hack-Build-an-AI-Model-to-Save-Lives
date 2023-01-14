@@ -11,7 +11,7 @@ from matplotlib import pyplot as pyplot
 from git import Repo
 
 
-@st.cache(suppress_st_warning=True)
+@st.cache()
 def loadModel():
     start_dl = time.time()
     Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
