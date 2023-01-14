@@ -68,7 +68,7 @@ if __name__ == '__main__':
   page1()
 
 
-@st.cache(hash_funcs={FooType: hash_func_for_foo_type})
+@st.cache(allow_output_mutation=True)
 def loadModel():
     start_dl = time.time()
     Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
