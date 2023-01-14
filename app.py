@@ -36,7 +36,8 @@ def page1():
      outpath = os.path.join(os.getcwd(), f"out_{os.path.basename(image_file.name)}")
      model=torch.hub.load(".",'custom','best.pt',source='local')
      if st.button('Detect Pothole'):
-        pred = model(img)
+        with st.spinner('Detecting Pothole...'):
+             pred = model(img)
         pred.render()  # render bbox in image
         for im in pred.imgs:
           im_base64 = Image.fromarray(im)
