@@ -10,17 +10,7 @@ import numpy as np
 from matplotlib import pyplot as pyplot
 from git import Repo
 
-@st.experimental_singleton
-def loadModel():
-    start_dl = time.time()
-    Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
-    os.chdir('yolov7')
-    yolo_model=requests.get(st.secrets["yolo_model_link"])
-    with open("best.pt", 'wb')as file:
-      file.write(yolo_model.content)  
-    finished_dl = time.time()
-    print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
-    
+
 
 
 def page1():
@@ -77,4 +67,16 @@ def page1():
 
 if __name__ == '__main__':
   page1()
-  loadModel()
+
+@st.experimental_singleton
+def loadModel():
+    start_dl = time.time()
+    Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
+    os.chdir('yolov7')
+    yolo_model=requests.get(st.secrets["yolo_model_link"])
+    with open("best.pt", 'wb')as file:
+      file.write(yolo_model.content)  
+    finished_dl = time.time()
+    print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
+    
+loadModel()
