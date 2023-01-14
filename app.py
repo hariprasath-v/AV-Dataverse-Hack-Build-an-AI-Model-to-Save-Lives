@@ -12,7 +12,6 @@ from git import Repo
 
 
 
-@st.cache
 def page1():
   image_file=st.sidebar.file_uploader("choose image file",type=['png','jpg','jpeg'])
   if image_file is not None:
