@@ -12,7 +12,7 @@ from git import Repo
 
 
 
-
+@st.cache
 def page1():
   image_file=st.sidebar.file_uploader("choose image file",type=['png','jpg','jpeg'])
   if image_file is not None:
@@ -69,7 +69,7 @@ if __name__ == '__main__':
   page1()
 
 
-@st.cache
+@st.cache(hash_funcs={_thread.RLock: my_hash_func})
 def loadModel():
     start_dl = time.time()
     Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
@@ -79,5 +79,5 @@ def loadModel():
       file.write(yolo_model.content)  
     finished_dl = time.time()
     print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
-    
+@st.cache(hash_funcs={_thread.RLock: my_hash_func})    
 loadModel()
