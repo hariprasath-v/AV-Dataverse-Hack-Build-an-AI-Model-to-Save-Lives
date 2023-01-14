@@ -10,8 +10,7 @@ import numpy as np
 from matplotlib import pyplot as pyplot
 from git import Repo
 
-
-@st.experimental_memo
+@st.experimental_singleton
 def loadModel():
     start_dl = time.time()
     Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
