@@ -24,7 +24,7 @@ def page1():
      with col1:
        st.image(img, caption='Uploaded Image', use_column_width='always',channels='RGB')
      outpath = os.path.join(os.getcwd(), f"out_{os.path.basename(image_file.name)}")
-     model=torch.hub.load(".",'custom','best.pt',source='local')
+     #model=torch.hub.load(".",'custom','best.pt',source='local')
      if st.button('Detect Pothole'):
         pred = model(img)
         pred.render()  # render bbox in image
@@ -68,15 +68,16 @@ def page1():
 if __name__ == '__main__':
   page1()
 
-@st.experimental_singleton
-def loadModel():
-    start_dl = time.time()
-    Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
-    os.chdir('yolov7')
-    yolo_model=requests.get(st.secrets["yolo_model_link"])
-    with open("best.pt", 'wb')as file:
-      file.write(yolo_model.content)  
-    finished_dl = time.time()
-    print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
-    
-loadModel()
+  @st.experimental_singleton
+  def loadModel():
+      start_dl = time.time()
+      Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
+      os.chdir('yolov7')
+      yolo_model=requests.get(st.secrets["yolo_model_link"])
+      with open("best.pt", 'wb')as file:
+        file.write(yolo_model.content)  
+      finished_dl = time.time()
+      print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
+
+  loadModel()
+  model=torch.hub.load(".",'custom','best.pt',source='local')
