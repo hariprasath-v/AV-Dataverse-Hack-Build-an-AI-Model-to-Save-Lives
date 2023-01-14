@@ -69,7 +69,7 @@ if __name__ == '__main__':
   page1()
 
 
-@st.cache(hash_funcs={_thread.RLock: my_hash_func})
+@st.cache(hash_funcs={FooType: hash_func_for_foo_type})
 def loadModel():
     start_dl = time.time()
     Repo.clone_from("https://github.com/WongKinYiu/yolov7",'yolov7')
@@ -79,5 +79,5 @@ def loadModel():
       file.write(yolo_model.content)  
     finished_dl = time.time()
     print(f"Model Downloaded, ETA:{finished_dl-start_dl}")
-@st.cache(hash_funcs={_thread.RLock: my_hash_func})    
+    
 loadModel()
