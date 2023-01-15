@@ -15,6 +15,14 @@
 
 ### Evaluation Metric is mAP@[.5,.95]
 
+
+### Post-competition I personally tried the yolo object detection model with wandb logging. The model scored 38%(100*mAP[.5,.95]) on test dataset.
+
+### [Wandb Model logging](https://wandb.ai/hari141v/pothole_detection?workspace=)
+
+### Model demo [Road Pothole Detection Using YOLOv7](https://road-pothole-detection.streamlit.app/)
+
+
 ### File information
  
  * av-dataverse-hack-build-an-ai-model-to-save-lives- EDA.ipynb [![Open in Kaggle](https://img.shields.io/static/v1?label=&message=Open%20in%20Kaggle&labelColor=grey&color=blue&logo=kaggle)](https://www.kaggle.com/code/hari141v/dataverse-hack-build-an-ai-model-to-save-lives-eda)
